@@ -1,0 +1,10 @@
+{
+  "id": "cloud-tts-reader",
+  "name": "Cloud TTS Reader",
+  "version": "1.0.0",
+  "minAppVersion": "1.5.0",
+  "description": "Read selected text or active notes aloud with Baidu Cloud TTS, OpenAI-compatible TTS services, or Microsoft Edge.",
+  "author": "zhangxiaolong",
+  "authorUrl": "",
+  "isDesktopOnly": true
+}

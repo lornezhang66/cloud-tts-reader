@@ -1,0 +1,8 @@
+.cloud-tts-reader-settings textarea {
+  width: 100%;
+  min-height: 5rem;
+}
+
+.cloud-tts-reader-settings .setting-item-description code {
+  white-space: nowrap;
+}
