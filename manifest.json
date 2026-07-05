@@ -3,7 +3,7 @@
   "name": "Cloud TTS Reader",
   "version": "1.0.3",
   "minAppVersion": "1.5.0",
-  "description": "Read selected text or active Markdown notes aloud with a local TTS CLI.",
+  "description": "Obsidian local TTS plugin for reading selected text and Markdown notes aloud with an offline text-to-speech CLI.",
   "author": "zhangxiaolong",
   "authorUrl": "",
   "isDesktopOnly": true

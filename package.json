@@ -1,7 +1,7 @@
 {
   "name": "cloud-tts-reader",
   "version": "1.0.1",
-  "description": "Read Obsidian Markdown notes aloud with a local TTS CLI.",
+  "description": "Obsidian local TTS plugin for reading Markdown notes aloud with an offline text-to-speech CLI.",
   "main": "main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",
@@ -9,8 +9,14 @@
   },
   "keywords": [
     "obsidian",
+    "obsidian-plugin",
     "tts",
-    "text-to-speech"
+    "text-to-speech",
+    "local-tts",
+    "offline-tts",
+    "markdown-reader",
+    "note-reader",
+    "ttsctl"
   ],
   "author": "zhangxiaolong",
   "license": "MIT",

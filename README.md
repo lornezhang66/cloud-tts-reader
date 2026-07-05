@@ -1,11 +1,14 @@
-# Cloud TTS Reader
+# Cloud TTS Reader - Obsidian Local TTS Plugin
 
-Cloud TTS Reader is an Obsidian desktop plugin that reads selected text or the active Markdown note aloud through a local TTS CLI.
+Cloud TTS Reader is an **Obsidian local TTS plugin** that reads selected text or active Markdown notes aloud with a local `ttsctl` text-to-speech CLI. It is built for offline note reading, Markdown narration, local-first speech synthesis, and shared macOS / Windows Obsidian vaults.
+
+Keywords: Obsidian TTS plugin, local text-to-speech, Markdown reader, offline TTS, note narration, `ttsctl`, macOS TTS, Windows TTS.
 
 The plugin is intentionally local-first: Obsidian extracts and cleans Markdown text, splits long notes into manageable chunks, calls `ttsctl say <text> --output <wav> --speed <number>`, then plays the generated wav files inside Obsidian.
 
 ## Features
 
+- Obsidian desktop plugin for local text-to-speech and Markdown note narration.
 - Read selected text first; if nothing is selected, read the active Markdown note.
 - Use the local `ttsctl` CLI as the speech engine.
 - Split long Markdown files into chunks before synthesis.
