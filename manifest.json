@@ -1,9 +1,9 @@
 {
   "id": "open-reader",
   "name": "Open Reader",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "minAppVersion": "1.5.0",
-  "description": "Obsidian local TTS plugin for reading selected text and Markdown notes aloud with an offline text-to-speech CLI.",
+  "description": "Read selected text and Markdown notes aloud with a local offline TTS CLI.",
   "author": "zhangxiaolong",
   "authorUrl": "",
   "isDesktopOnly": true
