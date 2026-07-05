@@ -1006,7 +1006,7 @@ class OpenReaderSettingTab extends PluginSettingTab {
     containerEl.addClass("open-reader-settings");
 
     new Setting(containerEl)
-      .setName("Open Reader 语音朗读")
+      .setName("语音朗读")
       .setHeading();
 
     // === TTS 服务配置 ===
