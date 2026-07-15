@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.2 - 2026-07-15
+
+- Fixed custom character filtering by removing each entered Unicode character directly instead of constructing a regular expression.
+- Clarified that Chinese opening and closing quotation marks must both be entered when both should be removed.
+
 ## 1.1.1 - 2026-07-14
 
 - Fixed first-time installation by downloading the official sherpa-onnx model archive instead of the unreliable Hugging Face snapshot path.

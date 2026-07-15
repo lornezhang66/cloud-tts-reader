@@ -586,9 +586,8 @@ export default class OpenReaderPlugin extends Plugin {
 
     // 自定义字符过滤
     if (this.settings.customCharsToFilter) {
-      const chars = this.settings.customCharsToFilter.split("").map(c => c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
-      if (chars.length > 0) {
-        next = next.replace(new RegExp(`[${chars.join("")}]`, "g"), "");
+      for (const character of this.settings.customCharsToFilter) {
+        next = next.split(character).join("");
       }
     }
 
@@ -1089,7 +1088,7 @@ class OpenReaderSettingTab extends PluginSettingTab {
 
     new Setting(containerEl)
       .setName("自定义过滤字符")
-      .setDesc("输入要过滤的字符列表，如 #$%^&。这些字符将被完全移除。")
+      .setDesc("输入要精确过滤的字符，如 “”—。中文左右引号是两个不同字符，需要分别输入。")
       .addText((text) =>
         text
           .setPlaceholder("如 #$%^&")
