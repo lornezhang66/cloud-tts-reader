@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.5 - 2026-07-16
+
+- Reverted the ineffective 1.1.4 review-warning changes.
+- Restored the established Local TTS architecture and settings behavior.
+
 ## 1.1.3 - 2026-07-16
 
 - Added bilingual Chinese-English copy to the website, README, and plugin settings.
