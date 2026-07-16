@@ -961,20 +961,20 @@ class OpenReaderSettingTab extends PluginSettingTab {
     containerEl.addClass("open-reader-settings");
 
     new Setting(containerEl)
-      .setName("语音朗读")
+      .setName("语音朗读 · text to speech")
       .setHeading();
 
     // === TTS 服务配置 ===
     new Setting(containerEl)
-      .setName("TTS 服务")
+      .setName("TTS 服务 · TTS service")
       .setHeading();
 
     new Setting(containerEl)
-      .setName("本地语音引擎")
-      .setDesc(this.plugin.detectTtsctlPath() ? "已安装。Mac 与 Windows 各自使用本机安装，不同步绝对路径。" : "未安装。模型下载约 130 MB，文字和语音均保留在本机。")
+      .setName("本地语音引擎 · local speech engine")
+      .setDesc(this.plugin.detectTtsctlPath() ? "已安装。每台电脑独立安装，不同步绝对路径。 · Installed separately on each computer; absolute paths are not synced." : "未安装。模型下载约 130 MB，文字和语音均保留在本机。 · Not installed. The model is about 130 MB; text and audio stay on this device.")
       .addButton((button) =>
         button
-          .setButtonText(this.plugin.detectTtsctlPath() ? "重新检测" : "一键安装")
+          .setButtonText(this.plugin.detectTtsctlPath() ? "重新检测 · Detect" : "一键安装 · Install")
           .onClick(async () => {
             if (!this.plugin.detectTtsctlPath()) await this.plugin.installLocalTts();
             this.display();
@@ -982,15 +982,15 @@ class OpenReaderSettingTab extends PluginSettingTab {
       )
       .addButton((button) =>
         button
-          .setButtonText("项目说明")
+          .setButtonText("项目说明 · docs")
           .onClick(() => {
             window.open("https://github.com/lornezhang66/local-tts-service#cli");
           }),
       );
 
     new Setting(containerEl)
-      .setName("语速")
-      .setDesc("语音播放速度，范围 0.5 到 2。推荐 0.8 - 1.2")
+      .setName("语速 · speech speed")
+      .setDesc("范围 0.5 到 2，推荐 0.8–1.2。 · Range: 0.5–2; recommended: 0.8–1.2.")
       .addSlider((slider) =>
         slider
           .setLimits(0.5, 2, 0.05)
@@ -1004,12 +1004,12 @@ class OpenReaderSettingTab extends PluginSettingTab {
 
     // === 文本处理配置 ===
     new Setting(containerEl)
-      .setName("文本处理")
+      .setName("文本处理 · text processing")
       .setHeading();
 
     new Setting(containerEl)
-      .setName("输出文件夹")
-      .setDesc("生成的音频文件存放目录，相对于 vault 根目录。")
+      .setName("输出文件夹 · output folder")
+      .setDesc("相对于 vault 根目录的音频目录。 · vault-relative folder for generated audio.")
       .addText((text) =>
         text
           .setPlaceholder(DEFAULT_SETTINGS.outputFolder)
@@ -1021,8 +1021,8 @@ class OpenReaderSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("分段字符数")
-      .setDesc("长文档分段处理的字符数上限，推荐 300-600。")
+      .setName("分段字符数 · max chunk characters")
+      .setDesc("长文档分段上限，推荐 300–600。 · maximum characters per chunk; recommended: 300–600.")
       .addText((text) =>
         text
           .setPlaceholder("450")
@@ -1034,8 +1034,8 @@ class OpenReaderSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("移除 YAML 前置matter")
-      .setDesc("朗读时跳过文档开头的 YAML 元数据区域。")
+      .setName("移除 YAML 前置元数据 · strip YAML frontmatter")
+      .setDesc("朗读时跳过文档开头的 YAML 区域。 · skip YAML metadata at the beginning of a note.")
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.stripFrontmatter)
@@ -1046,8 +1046,8 @@ class OpenReaderSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("跳过非文本代码块")
-      .setDesc("朗读 text/txt/plain 代码块，跳过其他语言代码块。")
+      .setName("跳过非文本代码块 · skip non-text code blocks")
+      .setDesc("朗读 text/txt/plain 代码块，跳过其他代码块。 · read text/txt/plain blocks and skip other code blocks.")
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.skipCodeBlocks)
@@ -1059,12 +1059,12 @@ class OpenReaderSettingTab extends PluginSettingTab {
 
     // === 文本过滤配置 ===
     new Setting(containerEl)
-      .setName("文本过滤")
+      .setName("文本过滤 · text filtering")
       .setHeading();
 
     new Setting(containerEl)
-      .setName("过滤残留 HTML 标签")
-      .setDesc("移除文档中残留的 HTML 标签，如 <div>、<span> 等。")
+      .setName("过滤 HTML 标签 · remove HTML tags")
+      .setDesc("移除 <div>、<span> 等残留标签。 · Remove leftover tags such as <div> and <span>.")
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.filterHtmlTags)
@@ -1075,8 +1075,8 @@ class OpenReaderSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("过滤多余空白字符")
-      .setDesc("移除多余的空格、制表符和超过两个连续换行符。")
+      .setName("过滤多余空白 · remove extra whitespace")
+      .setDesc("移除多余空格、制表符和连续换行。 · remove extra spaces, tabs, and repeated line breaks.")
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.filterExtraWhitespace)
@@ -1087,11 +1087,11 @@ class OpenReaderSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("自定义过滤字符")
-      .setDesc("输入要精确过滤的字符，如 “”—。中文左右引号是两个不同字符，需要分别输入。")
+      .setName("自定义过滤字符 · custom characters")
+      .setDesc("输入要精确移除的字符，如 “”—；左右引号需分别输入。 · enter exact characters to remove; opening and closing quotes are separate characters.")
       .addText((text) =>
         text
-          .setPlaceholder("如 #$%^&")
+          .setPlaceholder("例如 · e.g. #$%^&")
           .setValue(this.plugin.settings.customCharsToFilter)
           .onChange(async (value) => {
             this.plugin.settings.customCharsToFilter = value;
@@ -1101,12 +1101,12 @@ class OpenReaderSettingTab extends PluginSettingTab {
 
     // === 其他配置 ===
     new Setting(containerEl)
-      .setName("其他")
+      .setName("其他 · other")
       .setHeading();
 
     new Setting(containerEl)
-      .setName("保留生成的音频文件")
-      .setDesc("朗读结束后保留生成的 WAV 文件，否则自动删除。")
+      .setName("保留音频文件 · keep generated audio")
+      .setDesc("朗读后保留 WAV，否则自动删除。 · keep WAV files after playback; otherwise delete them.")
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.keepAudioFiles)
@@ -1117,8 +1117,8 @@ class OpenReaderSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("朗读完成后打开文件夹")
-      .setDesc("朗读结束后自动打开输出文件夹。")
+      .setName("完成后打开文件夹 · open folder when finished")
+      .setDesc("朗读结束后自动打开输出目录。 · open the output folder after reading.")
       .addToggle((toggle) =>
         toggle
           .setValue(this.plugin.settings.openFolderAfterSynthesis)
@@ -1129,22 +1129,22 @@ class OpenReaderSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("测试 TTS")
-      .setDesc("生成并播放一句测试语音，验证 TTS 配置是否正确。")
+      .setName("测试 TTS · test TTS")
+      .setDesc("生成并播放测试语音。 · generate and play a test sentence.")
       .addButton((button) =>
         button
-          .setButtonText("测试")
+          .setButtonText("测试 · test")
           .onClick(() => {
             void this.plugin.testLocalTtsCli();
           }),
       );
 
     new Setting(containerEl)
-      .setName("打开输出文件夹")
-      .setDesc("在文件管理器中打开音频文件输出目录。")
+      .setName("打开输出文件夹 · open output folder")
+      .setDesc("在文件管理器中打开音频目录。 · open the audio folder in the file manager.")
       .addButton((button) =>
         button
-          .setButtonText("打开")
+          .setButtonText("打开 · open")
           .onClick(() => {
             void this.plugin.openOutputFolder();
           }),

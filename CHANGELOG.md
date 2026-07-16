@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.3 - 2026-07-16
+
+- Added bilingual Chinese-English copy to the website, README, and plugin settings.
+- Added an English community launch post.
+
 ## 1.1.2 - 2026-07-15
 
 - Fixed custom character filtering by removing each entered Unicode character directly instead of constructing a regular expression.
