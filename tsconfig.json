@@ -11,6 +11,10 @@
     "importHelpers": true,
     "isolatedModules": true,
     "strictNullChecks": true,
+    "types": [
+      "node",
+      "obsidian"
+    ],
     "lib": [
       "DOM",
       "ES2018"

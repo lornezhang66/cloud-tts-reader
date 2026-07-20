@@ -22,7 +22,7 @@ type PlaybackState = "idle" | "loading" | "playing" | "paused" | "stopped";
 
 type MarkdownViewWithSelectedFiles = MarkdownView & { selectedFiles?: TFile[] };
 type AppWithSettings = App & { setting?: { openTabById?: (id: string) => void } };
-const LOCAL_TTS_VERSION = "ab0fccc1ced69958c523ddf788c93796829022de";
+const LOCAL_TTS_VERSION = "d84d6edb62e3e5aba94fc24930d70266a772d45a";
 const LOCAL_TTS_URL = "http://127.0.0.1:51273";
 
 interface OpenReaderSettings {
@@ -304,6 +304,11 @@ export default class OpenReaderPlugin extends Plugin {
     if (!sourceFile) {
       new Notice("Open Reader: no file selected or active.");
       return;
+    }
+
+    if (!this.detectTtsctlPath()) {
+      await this.installLocalTts();
+      if (!this.detectTtsctlPath()) return;
     }
 
     // 先停止上一次的播放并清理状态。

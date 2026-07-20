@@ -1,6 +1,6 @@
 {
   "name": "open-reader",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Turn Markdown notes into private, natural offline speech.",
   "main": "main.js",
   "scripts": {

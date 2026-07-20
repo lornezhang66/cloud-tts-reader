@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.7 - 2026-07-20
+
+- Starts the existing one-click Local TTS installer from the first read action when the engine is missing, then continues reading after installation.
+- Pins the Windows installer to a Local TTS revision that preserves Python failures and exit codes instead of reporting a missing WAV afterward.
+- Explicitly loads Node.js types during review linting and removes unsupported system-font aliases and `!important` from the website CSS.
+
 ## 1.1.6 - 2026-07-16
 
 - Reapplied the review-warning changes on top of 1.1.5 as a forward-only release.
